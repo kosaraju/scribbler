@@ -40,3 +40,13 @@ body {
     padding: 15px;
     margin:10px;
 }
+#allposts {
+    background-color: yellow;
+    padding: 5px;
+    margin: 5px;
+}
+#createposts{
+    background-color: yellow;
+    padding: 5px;
+    margin: 5px;
+}
