@@ -1,0 +1,42 @@
+body {
+    background-image: url('../images/background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    background-size: cover;
+}
+
+#title{
+    font-family: 'Montez', cursive;
+    color: blue;
+    font-size: -webkit-xxx-large;
+    margin-left: 10px;
+}
+
+#subheading{
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: large;
+    margin-left: 10px;
+}
+
+.buttons-container{
+    display: block;
+    float: right;
+    padding-top: 30px;
+    padding-right: 10px;
+}
+
+.logos-container{
+    display: block;
+    float: left;
+    padding-top: 13px;
+}
+
+.logos{
+    margin: 0px;
+}
+.btn-primary{
+    background-color:blue;
+    border-color: black;
+    padding: 15px;
+    margin:10px;
+}
