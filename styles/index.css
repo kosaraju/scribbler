@@ -41,13 +41,13 @@
   font-size: larger;
 }
 
-.signupmodal{
-  height: 100%;
-  display:flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
+/*.signupmodal{*/
+/*  height: 100%;*/
+/*  display:flex;*/
+/*  flex-direction: row;*/
+/*  justify-content: center;*/
+/*  align-items: center;*/
+/*}*/
 .postbuttons
 {
   position: absolute;
