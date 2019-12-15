@@ -3,14 +3,20 @@
 
 <head>
     <!-- TODO: Include Font Awesome file here -->
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/fontawesome/css/all.css">
     <!-- included bootstrap cdn for buttons-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <!-- TODO: Include Google Fonts file here -->
     <link href="https://fonts.googleapis.com/css?family=Montez&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="styles/common.css">
-    
+    <link rel="stylesheet" href="styles/index.css">
+
     <meta name="viewport" content = "width=device-width, initial-scale=1.0" >
+
+
+    <title>Welcome to Scribbler Blog!</title>
+
 </head>
 
 <body>
@@ -21,11 +27,38 @@
                     <p class="logos" id="subheading">Explore, Imagine, Create</p>
             </div>
             <div class='buttons-container'>
-                    <button type="button" class="btn btn-primary">Sign Up</button>
-                    <button type="button" class="btn btn-primary">Sign In</button>        
+                    <button type="button" class="btn btn-primary" id="signup" >Sign Up</button>
+                    <button type="button" class="btn btn-primary" id="signin">Sign In</button>
             </div>
+            <div id="signupModal" class="modal">
+              <!-- Singup Modal content -->
+              <div class="modal-content">
+                <span>
+                  <label class="ModalHeader">Get Started</label>
+                  <i class="fas fa-times"></i>
+                </span>
+                <form>
+                  <div>
+                    <p>Some text in the Modal..</p>
+                  </div>
+                </form>
+                </div>
+            </div>
+            <div id="signinModal" class="modal">
+              <!-- Singin Modal content -->
+              <div class="modal-content">
+                  <span>
+                    <label class="ModalHeader">Welcome Back!</label>
+                    <i class="fas fa-times"></i>
+                  </span>
+                <form>
+                  <div>
+                    <p>Some text in the Modal..</p>
+                  </div>
+                </form>
+              </div>
+            </div>
+      <script type="text/javascript" src="scripts/index.js"></script>
     </header>
-    
 </body>
-
 </html>
