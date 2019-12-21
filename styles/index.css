@@ -58,3 +58,25 @@
   justify-content: center;
   display: table;
 }
+
+.submitSignupins{
+  background-color: green;
+  font-size: x-large;
+}
+
+
+.signforms{
+  justify-content: right;
+  flex-direction: column;
+  align-content: center;
+  align-items: normal;
+  display: flex;
+}
+
+.labels{
+  font-size: larger;
+}
+
+#redirect2signup{
+text-align: center;
+}

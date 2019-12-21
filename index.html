@@ -38,17 +38,17 @@
                   <i class="fas fa-times"></i>
                 </div>
                 <div class="modal-body">
-                  <form>
-                    <h4>Name</h4>
+                  <form class="signforms">
+                    <label class="labels">Name</label>
                     <input class="inp" type="text" name="fname" placeholder="Enter your name" required>
-                    <h4>Username</h4>
+                    <label class="labels">Username</label>
                     <input class="inp" type="text" name="fname" placeholder="Enter your username" required>
-                    <h4>Password</h4>
+                    <label class="labels">Password</label>
                     <input class="inp" type="password" name="pass" placeholder="Enter your password" required>
-                    <h4>Confirm Password</h4>
+                    <label class="labels">Confirm Password</label>
                     <input class="inp" type="password" name="confPass" placeholder="Re-enter your password" required>
                     <hr/>
-                    <button>Sign Up</button>
+                    <button type="button" class="submitSignupins" id="submitSignup">Sign Up</button>
                   </form>
                 </div>
                 </div>
@@ -61,15 +61,15 @@
                   <i class="fas fa-times"></i>
                 </div>
                 <div class="modal-body">
-                  <form>
-                    <h4>Username</h4>
+                  <form class="signforms">
+                    <label class="labels">Username</label>
                     <input class="inp" type="text" name="fname" placeholder="Enter your username" required>
-                    <h4>Password</h4>
+                    <label class="labels">Password</label>
                     <input class="inp" type="password" name="pass" placeholder="Enter your password" required>
                     <hr/>
-                    <button>Sign In</button>
+                    <button type="button" class="submitSignupins" id="submitSignin">Sign In</button>
                     <div>
-                        <h4>Not a member?<span style="color:slateblue; cursor: pointer;" onclick="newUser()">Sign
+                        <h4 id="redirect2signup">Not a member?<span style="color:slateblue; cursor: pointer;" onclick="newUser()">Sign
                                 Up</span></h4>
                     </div>
                   </form>
