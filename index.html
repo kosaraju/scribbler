@@ -76,20 +76,40 @@
                 </div>
               </div>
             </div>
-      <script type="text/javascript" src="scripts/index.js"></script>
+<!--      <script type="text/javascript" src="scripts/index.js"></script>-->
     </header>
 
     <div class="postbuttons">
       <table class=buttons>
         <tr>
           <td>
-            <button type="button"  id="allposts">All Posts</button>
+            <button type="button"  id="allposts" onclick="viewAllPosts()">All Posts</button>
           </td>
           <td>
             <button type="button"  id="createposts">Create Post</button>
           </td>
         </tr>
       </table>
+      <div id="inputNewPostModal" class="modal">
+        <!-- New Post Modal content -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title" id="inputNewPostModalCenterTitle">Pen Your Post</h2>
+            <i class="fas fa-times"></i>
+          </div>
+          <div class="modal-body">
+            <form class="newpostform">
+              <label class="labels">Title</label>
+              <input class="inp" type="text" name="titlename" placeholder="Enter title of your post" required>
+              <label class="labels">Contents</label>
+              <input class="inp" type="text" name="contentstext" placeholder="Enter the comments of your post" required>
+              <hr/>
+              <button type="button" class="postcreatebuttons" id="createpostbtn" onclick="createPost()">Create</button>
+            </form>
+          </div>
+        </div>
+      </div>
    </div>
+    <script type="text/javascript" src="scripts/index.js"></script>
 </body>
 </html>
