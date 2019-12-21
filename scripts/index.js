@@ -34,3 +34,8 @@ window.onclick = function(event) {
     signinmodal.style.display = "none";
   }
 }
+
+function newUser(){
+  signinmodal.style.display = "none";
+  signupmodel.style.display = "block";
+}
