@@ -39,3 +39,11 @@ function newUser(){
   signinmodal.style.display = "none";
   signupmodel.style.display = "block";
 }
+
+function callSignin(){
+  return;
+}
+
+function callSignup(){
+  return;
+}
