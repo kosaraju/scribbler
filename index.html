@@ -3,11 +3,113 @@
 
 <head>
     <!-- TODO: Include Font Awesome file here -->
+    <link rel="stylesheet" href="styles/fontawesome/css/all.css">
+    <!-- included bootstrap cdn for buttons-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <!-- TODO: Include Google Fonts file here -->
+    <link href="https://fonts.googleapis.com/css?family=Montez&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/index.css">
+
+    <meta name="viewport" content = "width=device-width, initial-scale=1.0" >
+
+
+    <title>Welcome to Scribbler Blog!</title>
+
 </head>
 
 <body>
     <!-- TODO: Include all your code for the header and home page here -->
-</body>
+    <header class="header">
+            <div class=logos-container> 
+                    <p class="logos" id="title">ScriBBler</p>
+                    <p class="logos" id="subheading">Explore, Imagine, Create</p>
+            </div>
+            <div class='buttons-container'>
+                    <button type="button" class="btn btn-primary" id="signup" >Sign Up</button>
+                    <button type="button" class="btn btn-primary" id="signin">Sign In</button>
+            </div>
+            <div id="signupModal" class="modal">
+              <!-- Singup Modal content -->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h2 class="modal-title" id="signupModalCenterTitle">Get Started</h2>
+                  <i class="fas fa-times"></i>
+                </div>
+                <div class="modal-body">
+                  <form class="signforms">
+                    <label class="labels">Name</label>
+                    <input class="inp" type="text" name="fname" placeholder="Enter your name" required>
+                    <label class="labels">Username</label>
+                    <input class="inp" type="text" name="fname" placeholder="Enter your username" required>
+                    <label class="labels">Password</label>
+                    <input class="inp" type="password" name="pass" placeholder="Enter your password" required>
+                    <label class="labels">Confirm Password</label>
+                    <input class="inp" type="password" name="confPass" placeholder="Re-enter your password" required>
+                    <hr/>
+                    <button type="button" class="submitSignupins" id="submitSignup" onclick="callSignup()">Sign Up</button>
+                  </form>
+                </div>
+                </div>
+            </div>
+            <div id="signinModal" class="modal">
+              <!-- Singin Modal content -->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h2 class="modal-title" id="signinModalCenterTitle">Welcome Back!</h2>
+                  <i class="fas fa-times"></i>
+                </div>
+                <div class="modal-body">
+                  <form class="signforms">
+                    <label class="labels">Username</label>
+                    <input class="inp" type="text" name="fname" placeholder="Enter your username" required>
+                    <label class="labels">Password</label>
+                    <input class="inp" type="password" name="pass" placeholder="Enter your password" required>
+                    <hr/>
+                    <button type="button" class="submitSignupins" id="submitSignin" onclick="callSignin()">Sign In</button>
+                    <div>
+                        <h4 id="redirect2signup">Not a member?<span style="color:slateblue; cursor: pointer;" onclick="newUser()">Sign
+                                Up</span></h4>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+<!--      <script type="text/javascript" src="scripts/index.js"></script>-->
+    </header>
 
+    <div class="postbuttons">
+      <table class=buttons>
+        <tr>
+          <td>
+            <button type="button"  id="allposts" onclick="viewAllPosts()">All Posts</button>
+          </td>
+          <td>
+            <button type="button"  id="createposts">Create Post</button>
+          </td>
+        </tr>
+      </table>
+      <div id="inputNewPostModal" class="modal">
+        <!-- New Post Modal content -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title" id="inputNewPostModalCenterTitle">Pen Your Post</h2>
+            <i class="fas fa-times"></i>
+          </div>
+          <div class="modal-body">
+            <form class="newpostform">
+              <label class="labels">Title</label>
+              <input class="inp" type="text" name="titlename" placeholder="Enter title of your post" required>
+              <label class="labels">Contents</label>
+              <textarea rows="5" cols="60" class="inp" type="text" name="contentstext" placeholder="Enter the contents of your post" required></textarea>
+              <hr/>
+              <button type="button" class="submitSignupins" id="createpostbtn" onclick="createPost()">Create</button>
+            </form>
+          </div>
+        </div>
+      </div>
+   </div>
+    <script type="text/javascript" src="scripts/index.js"></script>
+</body>
 </html>
