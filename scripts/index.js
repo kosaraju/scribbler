@@ -60,6 +60,10 @@ function callSignup(){
   return;
 }
 
+function createPost(){
+  return;
+}
+
 function viewAllPosts() {
   document.location.href="html/bloglist.html";
 }

@@ -80,3 +80,12 @@
 #redirect2signup{
 text-align: center;
 }
+
+.newpostform{
+  justify-content: right;
+  flex-direction: column;
+  align-content: center;
+  align-items: normal;
+  display: flex;
+}
+
