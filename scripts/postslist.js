@@ -48,3 +48,42 @@ function callSignup(){
   return;
 }
 
+var posts=[
+  {  "author":"Srishti Gupta",
+     "summary":"hola",
+    "details":"Since JavaScript does not have any type-checking, either of these keywords can be used to declare a variable of any type (datatype) in JavaScript. Though all the three keywords are used for the same purpose, they are different."
+  },
+  { "author":"GK2",
+    "summary":"summary2",
+    "details":"details3"
+  }
+]
+
+showPostsTemplate();
+
+function showPostsTemplate(){
+  posts.forEach(function(value, index, array){
+    var template = '        <div>\n'
+        + '            <div>\n'
+        + '                <p>'+value.author+'</p>\n'
+        + '            </div>\n'
+        + '\n'
+        + '            <div>\n'
+        + '                <div>\n'
+        + '                    <p>'+value.summary+'</p>\n'
+        + '                    <span>\n'
+        + '                        <!-- TODO: Include Font Awesome icon for delete icon here -->\n'
+        + '\t\t\t<i class="fa fa-trash" aria-hidden="true"></i>\n'
+        + '                    </span>\n'
+        + '                </div>\n'
+        + '                <p>'+value.details+'</p>\n'
+        + '                <span>\n'
+        + '                    <!-- TODO: Include Font Awesome icon for horizontal ellipsis icon here -->\n'
+        + '                \t<i class="fas fa-ellipsis-h"></i>\t\n'
+        + '\t\t</span>\n'
+        + '            </div>\n'
+        + '        </div>\n'
+        document.getElementById("postslistdiv").innerHTML+=template;
+  });
+
+}

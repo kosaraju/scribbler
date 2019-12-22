@@ -139,3 +139,7 @@ body {
   display: flex;
 }
 
+#postslistdiv{
+position: fixed;
+margin: 200px;
+}
