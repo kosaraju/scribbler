@@ -1,69 +1,51 @@
-// Get the modal
-var signupmodel = document.getElementById("signupModal");
-var signinmodal = document.getElementById("signinModal");
-var newpostmodal = document.getElementById("inputNewPostModal");
-
-// Get the button that opens the modal
-var signupbtn = document.getElementById("signup");
-var signinbtn = document.getElementById("signin");
-var postbtn = document.getElementById("createposts");
-
-// Get the <i> element that closes the modal
-var signuptimes = document.getElementsByClassName("fas fa-times")[0];
-var signintimes = document.getElementsByClassName("fas fa-times")[1];
-var newposttimes = document.getElementsByClassName("fas fa-times")[2];
-
-// When the user clicks on the button, open the modal
-signupbtn.onclick = function() {
-  signupmodel.style.display = "block";
- }
-signinbtn.onclick = function() {
-  signinmodal.style.display = "block";
-}
-postbtn.onclick = function() {
-  newpostmodal.style.display = "block";
+//Open Modals
+function openSignupModal() {
+  var signUpModal = document.getElementById("sign-up-modal");
+  signUpModal.style.display = "block";
 }
 
-// When the user clicks on <span> (x), close the modal
-signuptimes.onclick = function() {
-  signupmodel.style.display = "none";
+function openSigninModal() {
+  document.getElementById("sign-in-modal").style.display = "block";
 }
-signintimes.onclick = function() {
-  signinmodal.style.display = "none";
+
+function enrouteToSignupModal() {
+  document.getElementById("sign-in-modal").style.display = "none";
+  openSignupModal();
 }
-newposttimes.onclick = function() {
-  newpostmodal.style.display = "none";
+
+function newPostModal() {
+  document.getElementById("create-post-modal").style.display = "block";
 }
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == signupmodel) {
-    signupmodel.style.display = "none";
+
+//Close Modals
+function closeSigninModal() {
+  var signInModal = document.getElementById("sign-in-modal");
+  signInModal.style.display = "none";
+}
+
+function closeSignupModal() {
+  var signUpModal = document.getElementById("sign-up-modal");
+  signUpModal.style.display = "none";
+}
+
+function closeNewPostModal() {
+  var signUpModal = document.getElementById("create-post-modal");
+  signUpModal.style.display = "none";
+}
+
+//Modals made responsive to foucs
+window.onclick = function (event) {
+  var modal = document.getElementsByClassName("modal");
+  for (var i = 0; i < modal.length; i++) {
+    if (event.target == modal[i]) {
+      modal[0].style.display = "none";
+      modal[1].style.display = "none";
+      modal[2].style.display = "none";
+    }
   }
-  if (event.target == signinmodal) {
-    signinmodal.style.display = "none";
-  }
-  if (event.target == newpostmodal) {
-    newpostmodal.style.display = "none";
-  }
-}
+};
 
-function newUser(){
-  signinmodal.style.display = "none";
-  signupmodel.style.display = "block";
-}
-
-function callSignin(){
-  return;
-}
-
-function callSignup(){
-  return;
-}
-
-function createPost(){
-  return;
-}
-
-function viewAllPosts() {
-  document.location.href="html/postslist.html";
+//Open all posts page
+function openAllPosts() {
+  document.location.href = "html/postslist.html";
 }
