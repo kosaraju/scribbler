@@ -1,11 +1,37 @@
-var postTitile = "Every thing you should know about module and require in node.js";
-var content = `Node.js is an open-source, cross-platform, JavaScript runtime environment that executes JavaScript code outside of a browser. Node.js lets developers use JavaScript to write command line tools and for server-side scripting—running scripts server-side to produce dynamic web page content before the page is sent to the user's web browser. Consequently, Node.js represents a "JavaScript everywhere" paradigm,[6] unifying web-application development around a single programming language, rather than different languages for server- and client-side scripts.
-Though .js is the standard filename extension for JavaScript code, the name "Node.js" does not refer to a particular file in this context and is merely the name of the product. Node.js has an event-driven architecture capable of asynchronous I/O. These design choices aim to optimize throughput and scalability in web applications with many input/output operations, as well as for real-time Web applications (e.g., real-time communication programs and browser games)`;
+var posts=[
+  {id:1,
+    author  :"Srishti Gupta",
+    heading :"'let' me be a 'const’(ant), not a ‘var’(iable)!",
+    content :"Since JavaScript does not have any type-checking, either of these keywords can be used to declare a variable of any type (datatype) in JavaScript. Though all the three keywords are used for the same purpose, they are different."
+  },
+  {id:2,
+    author  :"Colby Fayock",
+    heading :"What is linting and how can it save you time?",
+    content :"One of the biggest challenges in software development is time. It’s something we can’t easily get more of, but linting can help us make the most out of the time we have."
+  },
+  {id:3,
+    author  :"Yazeed Bzadough",
+    heading :"How to Get More Views on Your Tech Blog",
+    content :"If you're a developer with a Twitter account, you've already seen everyone and their cat start a blog, YouTube channel, or Patreon. We all want to become stars, or at the very least, a recognizable name in the industry."
+  },
+  {id:4,
+    author  :"Cedd Burge",
+    heading :"How to write easily describable code",
+    content :"When code is not describable using words, most people have to do some mental mapping to turn it in to words. This wastes mental energy, and you run the risk of getting the mapping wrong. Different people will map to different words, which leads to confusion when discussing the code."
+  },
+  {id:5,
+    author  :"Srishti Gupta",
+    heading :"Everything you should know about ‘module’ & ‘require’ in Node.js",
+    content :"Node.js treats each JavaScript file as a separate module. For instance, if you have a file containing some code and this file is named xyz.js, then this file is treated as a module in Node, and you can say that you’ve created a module named xyz."
+  }
+]
+
 var likes = 0;
 var comments = [];
 
-function populatePost() {
-  document.getElementById('post-contents').value = content;
+function populatePost(index) {
+  console.log(index);
+  document.getElementById('post-contents').value = posts[index].content;
   document.getElementById('post-contents').setAttribute('disabled', 'true');
   document.getElementById('post-title-edit').style.display = "none";
 }
@@ -44,8 +70,8 @@ function onLikesButtonCLicked() {
 
 function onCommentButtonClicked() {
   var comment = document.getElementById('post-comment').value;
+  if (comment=='') return;
   comments.unshift(comment);
-  console.log(comments);
   popuateComments();
 }
 
@@ -58,4 +84,44 @@ function popuateComments() {
   html += '</div>';
   document.getElementById('postedCommentsSection').innerHTML = html;
   document.getElementById('postedCommentsSection').style.background = 'grey';
+}
+
+// showPostForEdit(index);
+function showPostForEdit(index){
+  var postEditTemplate='</div>'
+  +'<div class="custom-container">'
+  +'<form>'
+  +'<h4 id="title">'+ posts[index].heading+'</h4>'
+  +'<div class="form-group">'
+  +'<input class="form-control" id="post-title-edit" type="text"/>'
+  +'</div>'
+  +'<div id="authorSection">'
+  +'<span id="authName">'+ posts[index].author+'</span>'
+  +'<span>'
+  +'<button class="btn btn-danger" id="edit-save-button"'
+  +'onclick="onEditButtnClicked()" style="float:right;" type="button">Edit <i'
+  +'class="fa fa-edit"></i></button>'
+  +'</span>'
+  +'</div>'
+  +'<div class="form-group">'
+  +'<textarea class="form-control" id="post-contents" rows="10"></textarea>'
+  +'</div>'
+  +'<button class="btn btn-danger" id="likeBtn" onclick="onLikesButtonCLicked()" type="button"><i'
+  +'class="fa fa-thumbs-up"></i>Like'
+  +'</button>'
+  +'</form>'
+  +'<p id="likesCount">Be the first one to like this!</p>'
+  +'</div>'
+  +'<div class="comment-section">'
+  +'<form>'
+  +'<div class="form-group">'
+  +'<textarea class="form-control" id="post-comment" placeholder="Enter a comment" required'
+  +'rows="4"></textarea>'
+  +'</div>'
+  +'<button class="btn btn-danger" onclick="onCommentButtonClicked()" type="button">Comment</button>'
+  +'</form>'
+  +'</div>'
+  +'<div class="posted-comments" id="postedCommentsSection">'
+  +'</div>';
+  document.getElementById('editPostSection').innerHTML += postEditTemplate;
 }

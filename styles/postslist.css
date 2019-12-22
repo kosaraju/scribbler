@@ -97,6 +97,9 @@ body {
   margin-left: 0px;
   text-align: justify;
   position: relative;
+  line-height: 18px;
+  max-height: 54px; /* line-height * 3 */
+  overflow: hidden;
 }
 
 i:hover {
