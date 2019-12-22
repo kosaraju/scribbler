@@ -19,8 +19,8 @@ function deletePost(action) {
   card.className = "deleted";
 }
 
-function openPost(id) {
-  document.location.href = "./posts.html";
+function openPost(index) {
+  document.location.href = "./posts.html?index="+index;
 }
 
 var posts=[
@@ -65,7 +65,7 @@ function showPostslist() {
         + '</span>'
         + '</div>'
         + '<p class="content-text"> ' + value.content + '</p>'
-        + '<span onclick="openPost('+value.id+')" style="float: right;">'
+        + '<span onclick="openPost('+index+')" style="float: right;">'
         + '<i class="fa fa-ellipsis-h"></i>'
         + '</span>'
         + '</div>'
