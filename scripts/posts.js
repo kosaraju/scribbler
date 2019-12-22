@@ -44,8 +44,8 @@ function onLikesButtonCLicked() {
 
 function onCommentButtonClicked() {
   var comment = document.getElementById('post-comment').value;
+  if (comment=='') return;
   comments.unshift(comment);
-  console.log(comments);
   popuateComments();
 }
 
