@@ -5,16 +5,10 @@ function openDeleteModel(index) {
   activeCard = index;
 }
 
-function closeConfirmerDialog() {
-  document.getElementById("confirmer-modal").style.display = "none";
-}
-
 function deletePost(action) {
   document.getElementById("confirmer-modal").style.display = "none";
   if (action == false) return;
-  console.log(action);
   var card = document.getElementById('post-card' + activeCard);
-  console.log(card);
   card.style.display = "none";
   card.className = "deleted";
 }
