@@ -3,10 +3,13 @@
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
-  typeof define === 'function' && define.amd ? define(['exports'], factory) :
-  (factory((global['fontawesome-free-conflict-detection'] = {})));
-}(this, (function (exports) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(
+      exports) :
+      typeof define === 'function' && define.amd ? define(['exports'], factory)
+          :
+          (factory((global['fontawesome-free-conflict-detection'] = {})));
+}(this, (function (exports) {
+  'use strict';
 
   function _typeof(obj) {
     if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
@@ -15,7 +18,8 @@
       };
     } else {
       _typeof = function (obj) {
-        return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+        return obj && typeof Symbol === "function" && obj.constructor === Symbol
+        && obj !== Symbol.prototype ? "symbol" : typeof obj;
       };
     }
 
@@ -43,9 +47,10 @@
       var ownKeys = Object.keys(source);
 
       if (typeof Object.getOwnPropertySymbols === 'function') {
-        ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {
-          return Object.getOwnPropertyDescriptor(source, sym).enumerable;
-        }));
+        ownKeys = ownKeys.concat(
+            Object.getOwnPropertySymbols(source).filter(function (sym) {
+              return Object.getOwnPropertyDescriptor(source, sym).enumerable;
+            }));
       }
 
       ownKeys.forEach(function (key) {
@@ -60,9 +65,14 @@
   var _DOCUMENT = {};
 
   try {
-    if (typeof window !== 'undefined') _WINDOW = window;
-    if (typeof document !== 'undefined') _DOCUMENT = document;
-  } catch (e) {}
+    if (typeof window !== 'undefined') {
+      _WINDOW = window;
+    }
+    if (typeof document !== 'undefined') {
+      _DOCUMENT = document;
+    }
+  } catch (e) {
+  }
 
   var _ref = _WINDOW.navigator || {},
       _ref$userAgent = _ref.userAgent,
@@ -71,7 +81,9 @@
   var WINDOW = _WINDOW;
   var DOCUMENT = _DOCUMENT;
   var IS_BROWSER = !!WINDOW.document;
-  var IS_DOM = !!DOCUMENT.documentElement && !!DOCUMENT.head && typeof DOCUMENT.addEventListener === 'function' && typeof DOCUMENT.createElement === 'function';
+  var IS_DOM = !!DOCUMENT.documentElement && !!DOCUMENT.head
+      && typeof DOCUMENT.addEventListener === 'function'
+      && typeof DOCUMENT.createElement === 'function';
   var IS_IE = ~userAgent.indexOf('MSIE') || ~userAgent.indexOf('Trident/');
 
   var functions = [];
@@ -87,16 +99,21 @@
   var loaded = false;
 
   if (IS_DOM) {
-    loaded = (DOCUMENT.documentElement.doScroll ? /^loaded|^c/ : /^loaded|^i|^c/).test(DOCUMENT.readyState);
-    if (!loaded) DOCUMENT.addEventListener('DOMContentLoaded', listener);
+    loaded = (DOCUMENT.documentElement.doScroll ? /^loaded|^c/
+        : /^loaded|^i|^c/).test(DOCUMENT.readyState);
+    if (!loaded) {
+      DOCUMENT.addEventListener('DOMContentLoaded', listener);
+    }
   }
 
-  function domready (fn) {
-    if (!IS_DOM) return;
+  function domready(fn) {
+    if (!IS_DOM) {
+      return;
+    }
     loaded ? setTimeout(fn, 0) : functions.push(fn);
   }
 
-  function report (_ref) {
+  function report(_ref) {
     var nodesTested = _ref.nodesTested,
         nodesFound = _ref.nodesFound;
     var timedOutTests = {};
@@ -110,7 +127,9 @@
     var conflictsCount = Object.keys(nodesTested.conflict).length;
 
     if (conflictsCount > 0) {
-      console.info("%cConflict".concat(conflictsCount > 1 ? 's' : '', " found:"), 'color: darkred; font-size: large');
+      console.info(
+          "%cConflict".concat(conflictsCount > 1 ? 's' : '', " found:"),
+          'color: darkred; font-size: large');
       var data = {};
 
       for (var _key in nodesTested.conflict) {
@@ -118,7 +137,8 @@
         data[_key] = {
           'tagName': item.tagName,
           'src/href': item.src || item.href || 'n/a',
-          'innerText excerpt': item.innerText && item.innerText !== '' ? item.innerText.slice(0, 200) + '...' : '(empty)'
+          'innerText excerpt': item.innerText && item.innerText !== ''
+              ? item.innerText.slice(0, 200) + '...' : '(empty)'
         };
       }
 
@@ -128,7 +148,9 @@
     var noConflictsCount = Object.keys(nodesTested.noConflict).length;
 
     if (noConflictsCount > 0) {
-      console.info("%cNo conflict".concat(noConflictsCount > 1 ? 's' : '', " found with ").concat(noConflictsCount == 1 ? 'this' : 'these', ":"), 'color: green; font-size: large');
+      console.info("%cNo conflict".concat(noConflictsCount > 1 ? 's' : '',
+          " found with ").concat(noConflictsCount == 1 ? 'this' : 'these', ":"),
+          'color: green; font-size: large');
       var _data = {};
 
       for (var _key2 in nodesTested.noConflict) {
@@ -136,7 +158,8 @@
         _data[_key2] = {
           'tagName': _item.tagName,
           'src/href': _item.src || _item.href || 'n/a',
-          'innerText excerpt': _item.innerText && _item.innerText !== '' ? _item.innerText.slice(0, 200) + '...' : '(empty)'
+          'innerText excerpt': _item.innerText && _item.innerText !== ''
+              ? _item.innerText.slice(0, 200) + '...' : '(empty)'
         };
       }
 
@@ -146,7 +169,10 @@
     var timeOutCount = Object.keys(timedOutTests).length;
 
     if (timeOutCount > 0) {
-      console.info("%cLeftovers--we timed out before collecting test results for ".concat(timeOutCount == 1 ? 'this' : 'these', ":"), 'color: blue; font-size: large');
+      console.info(
+          "%cLeftovers--we timed out before collecting test results for ".concat(
+              timeOutCount == 1 ? 'this' : 'these', ":"),
+          'color: blue; font-size: large');
       var _data2 = {};
 
       for (var _key3 in timedOutTests) {
@@ -154,7 +180,8 @@
         _data2[_key3] = {
           'tagName': _item2.tagName,
           'src/href': _item2.src || _item2.href || 'n/a',
-          'innerText excerpt': _item2.innerText && _item2.innerText !== '' ? _item2.innerText.slice(0, 200) + '...' : '(empty)'
+          'innerText excerpt': _item2.innerText && _item2.innerText !== ''
+              ? _item2.innerText.slice(0, 200) + '...' : '(empty)'
         };
       }
 
@@ -162,10 +189,11 @@
     }
   }
 
-  var commonjsGlobal = typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
+  var commonjsGlobal = typeof window !== 'undefined' ? window : typeof global
+  !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
   function createCommonjsModule(fn, module) {
-  	return module = { exports: {} }, fn(module, module.exports), module.exports;
+    return module = {exports: {}}, fn(module, module.exports), module.exports;
   }
 
   var md5 = createCommonjsModule(function (module) {
@@ -185,6 +213,7 @@
         var msw = (x >> 16) + (y >> 16) + (lsw >> 16);
         return msw << 16 | lsw & 0xffff;
       }
+
       /**
        * Bitwise rotate a 32-bit number to the left.
        *
@@ -197,6 +226,7 @@
       function bitRotateLeft(num, cnt) {
         return num << cnt | num >>> 32 - cnt;
       }
+
       /**
        * Basic operation the algorithm uses.
        *
@@ -211,8 +241,10 @@
 
 
       function md5cmn(q, a, b, x, s, t) {
-        return safeAdd(bitRotateLeft(safeAdd(safeAdd(a, q), safeAdd(x, t)), s), b);
+        return safeAdd(bitRotateLeft(safeAdd(safeAdd(a, q), safeAdd(x, t)), s),
+            b);
       }
+
       /**
        * Basic operation the algorithm uses.
        *
@@ -230,6 +262,7 @@
       function md5ff(a, b, c, d, x, s, t) {
         return md5cmn(b & c | ~b & d, a, b, x, s, t);
       }
+
       /**
        * Basic operation the algorithm uses.
        *
@@ -247,6 +280,7 @@
       function md5gg(a, b, c, d, x, s, t) {
         return md5cmn(b & d | c & ~d, a, b, x, s, t);
       }
+
       /**
        * Basic operation the algorithm uses.
        *
@@ -264,6 +298,7 @@
       function md5hh(a, b, c, d, x, s, t) {
         return md5cmn(b ^ c ^ d, a, b, x, s, t);
       }
+
       /**
        * Basic operation the algorithm uses.
        *
@@ -281,6 +316,7 @@
       function md5ii(a, b, c, d, x, s, t) {
         return md5cmn(c ^ (b | ~d), a, b, x, s, t);
       }
+
       /**
        * Calculate the MD5 of an array of little-endian words, and a bit length.
        *
@@ -381,6 +417,7 @@
 
         return [a, b, c, d];
       }
+
       /**
        * Convert an array of little-endian words to a string
        *
@@ -400,6 +437,7 @@
 
         return output;
       }
+
       /**
        * Convert a raw string to an array of little-endian words
        * Characters >255 have their high-byte silently ignored.
@@ -426,6 +464,7 @@
 
         return output;
       }
+
       /**
        * Calculate the MD5 of a raw string
        *
@@ -437,6 +476,7 @@
       function rstrMD5(s) {
         return binl2rstr(binlMD5(rstr2binl(s), s.length * 8));
       }
+
       /**
        * Calculates the HMAC-MD5 of a key and some data (raw strings)
        *
@@ -466,6 +506,7 @@
         hash = binlMD5(ipad.concat(rstr2binl(data)), 512 + data.length * 8);
         return binl2rstr(binlMD5(opad.concat(hash), 512 + 128));
       }
+
       /**
        * Convert a raw string to a hex string
        *
@@ -487,6 +528,7 @@
 
         return output;
       }
+
       /**
        * Encode a string as UTF-8
        *
@@ -498,6 +540,7 @@
       function str2rstrUTF8(input) {
         return unescape(encodeURIComponent(input));
       }
+
       /**
        * Encodes input string as raw MD5 string
        *
@@ -509,6 +552,7 @@
       function rawMD5(s) {
         return rstrMD5(str2rstrUTF8(s));
       }
+
       /**
        * Encodes input string as Hex encoded string
        *
@@ -520,6 +564,7 @@
       function hexMD5(s) {
         return rstr2hex(rawMD5(s));
       }
+
       /**
        * Calculates the raw HMAC-MD5 for the given key and data
        *
@@ -532,6 +577,7 @@
       function rawHMACMD5(k, d) {
         return rstrHMACMD5(str2rstrUTF8(k), str2rstrUTF8(d));
       }
+
       /**
        * Calculates the Hex encoded HMAC-MD5 for the given key and data
        *
@@ -544,6 +590,7 @@
       function hexHMACMD5(k, d) {
         return rstr2hex(rawHMACMD5(k, d));
       }
+
       /**
        * Calculates MD5 value for a given string.
        * If a key is provided, calculates the HMAC-MD5 value.
@@ -581,7 +628,9 @@
   });
 
   function md5ForNode(node) {
-    if (null === node || 'object' !== _typeof(node)) return undefined;
+    if (null === node || 'object' !== _typeof(node)) {
+      return undefined;
+    }
 
     if (node.src) {
       return md5(node.src);
@@ -605,12 +654,14 @@
   function pollUntil(_ref) {
     var _ref$fn = _ref.fn,
         fn = _ref$fn === void 0 ? function () {
-      return true;
-    } : _ref$fn,
+          return true;
+        } : _ref$fn,
         _ref$initialDuration = _ref.initialDuration,
-        initialDuration = _ref$initialDuration === void 0 ? 1 : _ref$initialDuration,
+        initialDuration = _ref$initialDuration === void 0 ? 1
+            : _ref$initialDuration,
         _ref$maxDuration = _ref.maxDuration,
-        maxDuration = _ref$maxDuration === void 0 ? WINDOW.FontAwesomeDetection.timeout : _ref$maxDuration,
+        maxDuration = _ref$maxDuration === void 0
+            ? WINDOW.FontAwesomeDetection.timeout : _ref$maxDuration,
         _ref$showProgress = _ref.showProgress,
         showProgress = _ref$showProgress === void 0 ? false : _ref$showProgress,
         progressIndicator = _ref.progressIndicator;
@@ -645,29 +696,33 @@
   }
 
   function detectWebfontConflicts() {
-    var linkTags = Array.from(DOCUMENT.getElementsByTagName('link')).filter(function (t) {
-      return !t.hasAttribute(detectionIgnoreAttr);
-    });
-    var styleTags = Array.from(DOCUMENT.getElementsByTagName('style')).filter(function (t) {
-      if (t.hasAttribute(detectionIgnoreAttr)) {
-        return false;
-      } // If the browser has loaded the FA5 CSS, let's not test that <style> element.
-      // Its enough that we'll be testing for traces of the corresponding JS being loaded, and testing
-      // this <style> would only produce a false negative anyway.
+    var linkTags = Array.from(DOCUMENT.getElementsByTagName('link')).filter(
+        function (t) {
+          return !t.hasAttribute(detectionIgnoreAttr);
+        });
+    var styleTags = Array.from(DOCUMENT.getElementsByTagName('style')).filter(
+        function (t) {
+          if (t.hasAttribute(detectionIgnoreAttr)) {
+            return false;
+          } // If the browser has loaded the FA5 CSS, let's not test that <style> element.
+          // Its enough that we'll be testing for traces of the corresponding JS being loaded, and testing
+          // this <style> would only produce a false negative anyway.
 
+          if (WINDOW.FontAwesomeConfig && t.innerText.match(new RegExp(
+              "svg:not\\(:root\\)\\.".concat(
+                  WINDOW.FontAwesomeConfig.replacementClass)))) {
+            return false;
+          }
 
-      if (WINDOW.FontAwesomeConfig && t.innerText.match(new RegExp("svg:not\\(:root\\)\\.".concat(WINDOW.FontAwesomeConfig.replacementClass)))) {
-        return false;
-      }
-
-      return true;
-    });
+          return true;
+        });
 
     function runDiag(scriptOrLinkTag, md5) {
       var diagFrame = DOCUMENT.createElement('iframe'); // Using "visibility: hidden; position: absolute" instead of "display: none;" because
       // Firefox will not return the expected results for getComputedStyle if our iframe has display: none.
 
-      diagFrame.setAttribute('style', 'visibility: hidden; position: absolute; height: 0; width: 0;');
+      diagFrame.setAttribute('style',
+          'visibility: hidden; position: absolute; height: 0; width: 0;');
       var testIconId = 'fa-test-icon-' + md5;
       var iTag = DOCUMENT.createElement('i');
       iTag.setAttribute('class', 'fa fa-coffee');
@@ -681,14 +736,16 @@
       // will probably cause it to choke. Chrome will show an error like this:
       // Uncaught SyntaxError: Unexpected end of input
 
-      var diagScriptFun = function diagScriptFun(nodeUnderTestId, testIconId, md5, parentOrigin) {
+      var diagScriptFun = function diagScriptFun(nodeUnderTestId, testIconId,
+          md5, parentOrigin) {
         parent.FontAwesomeDetection.__pollUntil({
           fn: function fn() {
             var iEl = document.getElementById(testIconId);
             var computedStyle = window.getComputedStyle(iEl);
             var fontFamily = computedStyle.getPropertyValue('font-family');
 
-            if (!!fontFamily.match(/FontAwesome/) || !!fontFamily.match(/Font Awesome 5/)) {
+            if (!!fontFamily.match(/FontAwesome/) || !!fontFamily.match(
+                /Font Awesome 5/)) {
               return true;
             } else {
               return false;
@@ -722,8 +779,11 @@
         });
       };
 
-      var parentOrigin = WINDOW.location.origin === 'file://' ? '*' : WINDOW.location.origin;
-      diagScript.innerText = "(".concat(diagScriptFun.toString(), ")('").concat(nodeUnderTestId, "', '").concat(testIconId || 'foo', "', '").concat(md5, "', '").concat(parentOrigin, "');");
+      var parentOrigin = WINDOW.location.origin === 'file://' ? '*'
+          : WINDOW.location.origin;
+      diagScript.innerText = "(".concat(diagScriptFun.toString(), ")('").concat(
+          nodeUnderTestId, "', '").concat(testIconId || 'foo', "', '").concat(
+          md5, "', '").concat(parentOrigin, "');");
 
       diagFrame.onload = function () {
         diagFrame.contentDocument.head.appendChild(diagScript);
@@ -788,9 +848,11 @@
       scriptUnderTest.async = true;
       var diagScript = DOCUMENT.createElement('script');
       diagScript.setAttribute('id', diagScriptId);
-      var parentOrigin = WINDOW.location.origin === 'file://' ? '*' : WINDOW.location.origin;
+      var parentOrigin = WINDOW.location.origin === 'file://' ? '*'
+          : WINDOW.location.origin;
 
-      var diagScriptFun = function diagScriptFun(nodeUnderTestId, md5, parentOrigin) {
+      var diagScriptFun = function diagScriptFun(nodeUnderTestId, md5,
+          parentOrigin) {
         parent.FontAwesomeDetection.__pollUntil({
           fn: function fn() {
             return !!window.FontAwesomeConfig;
@@ -822,7 +884,9 @@
         });
       };
 
-      diagScript.innerText = "(".concat(diagScriptFun.toString(), ")('").concat(nodeUnderTestId, "', '").concat(md5ForScript, "', '").concat(parentOrigin, "');");
+      diagScript.innerText = "(".concat(diagScriptFun.toString(), ")('").concat(
+          nodeUnderTestId, "', '").concat(md5ForScript, "', '").concat(
+          parentOrigin, "');");
 
       diagFrame.onload = function () {
         diagFrame.contentDocument.head.appendChild(diagScript);
@@ -851,14 +915,17 @@
   }
 
   function conflictDetection() {
-    var report$$1 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : function () {};
+    var report$$1 = arguments.length > 0 && arguments[0] !== undefined
+        ? arguments[0] : function () {
+        };
     var nodesTested = {
       conflict: {},
       noConflict: {}
     };
 
     WINDOW.onmessage = function (e) {
-      if (WINDOW.location.origin === 'file://' || e.origin === WINDOW.location.origin) {
+      if (WINDOW.location.origin === 'file://' || e.origin
+          === WINDOW.location.origin) {
         if (e && e.data) {
           if (e.data.type === 'fontawesome-conflict') {
             nodesTested.conflict[e.data.md5] = e.data;
@@ -874,32 +941,46 @@
 
     var nodesFound = _objectSpread({}, scriptsToTest, cssToTest);
 
-    var testCount = Object.keys(scriptsToTest).length + Object.keys(cssToTest).length; // The resultsCollectionMaxWait allows for the time between when the tests running under
+    var testCount = Object.keys(scriptsToTest).length + Object.keys(
+        cssToTest).length; // The resultsCollectionMaxWait allows for the time between when the tests running under
     // child iframes call postMessage with their results, and when the parent window
     // receives and handles those events with window.onmessage.
     // Making it configurable allows us to test the scenario where this timeout is exceeded.
     // Naming it something very different from "timeout" is to help avoid the potential ambiguity between
     // these two timeout-related settings.
 
-    var masterTimeout = WINDOW.FontAwesomeDetection.timeout + WINDOW.FontAwesomeDetection.resultsCollectionMaxWait;
+    var masterTimeout = WINDOW.FontAwesomeDetection.timeout
+        + WINDOW.FontAwesomeDetection.resultsCollectionMaxWait;
     console.group('Font Awesome Detector');
 
     if (testCount === 0) {
       console.info('%cAll Good!', 'color: green; font-size: large');
-      console.info('We didn\'t find anything that needs testing for conflicts. Ergo, no conflicts.');
+      console.info(
+          'We didn\'t find anything that needs testing for conflicts. Ergo, no conflicts.');
     } else {
       console.info("Testing ".concat(testCount, " possible conflicts."));
-      console.info("We'll wait about ".concat(Math.round(WINDOW.FontAwesomeDetection.timeout / 10) / 100, " seconds while testing these and\n") + "then up to another ".concat(Math.round(WINDOW.FontAwesomeDetection.resultsCollectionMaxWait / 10) / 100, " to allow the browser time\n") + "to accumulate the results. But we'll probably be outta here way before then.\n\n");
-      console.info("You can adjust those durations by assigning values to these attributes on the <script> element that loads this detection:");
-      console.info("\t%c".concat(timeoutAttr, "%c: milliseconds to wait for each test before deciding whether it's a conflict."), 'font-weight: bold;', 'font-size: normal;');
-      console.info("\t%c".concat(resultsCollectionMaxWaitAttr, "%c: milliseconds to wait for the browser to accumulate test results before giving up."), 'font-weight: bold;', 'font-size: normal;');
+      console.info("We'll wait about ".concat(
+          Math.round(WINDOW.FontAwesomeDetection.timeout / 10) / 100,
+          " seconds while testing these and\n") + "then up to another ".concat(
+          Math.round(WINDOW.FontAwesomeDetection.resultsCollectionMaxWait / 10)
+          / 100, " to allow the browser time\n")
+          + "to accumulate the results. But we'll probably be outta here way before then.\n\n");
+      console.info(
+          "You can adjust those durations by assigning values to these attributes on the <script> element that loads this detection:");
+      console.info("\t%c".concat(timeoutAttr,
+          "%c: milliseconds to wait for each test before deciding whether it's a conflict."),
+          'font-weight: bold;', 'font-size: normal;');
+      console.info("\t%c".concat(resultsCollectionMaxWaitAttr,
+          "%c: milliseconds to wait for the browser to accumulate test results before giving up."),
+          'font-weight: bold;', 'font-size: normal;');
       pollUntil({
         // Give this overall timer a little extra cushion
         maxDuration: masterTimeout,
         showProgress: true,
         progressIndicator: 'waiting...',
         fn: function fn() {
-          return Object.keys(nodesTested.conflict).length + Object.keys(nodesTested.noConflict).length >= testCount;
+          return Object.keys(nodesTested.conflict).length + Object.keys(
+              nodesTested.noConflict).length >= testCount;
         }
       }).then(function () {
         console.info('DONE!');
@@ -914,7 +995,8 @@
         console.groupEnd();
       }).catch(function (e) {
         if (e === 'timeout') {
-          console.info('TIME OUT! We waited until we got tired. Here\'s what we found:');
+          console.info(
+              'TIME OUT! We waited until we got tired. Here\'s what we found:');
           setDoneResults({
             nodesTested: nodesTested,
             nodesFound: nodesFound
@@ -946,7 +1028,8 @@
   var _default = {
     report: report,
     timeout: +(DOCUMENT.currentScript.getAttribute(timeoutAttr) || "2000"),
-    resultsCollectionMaxWait: +(DOCUMENT.currentScript.getAttribute(resultsCollectionMaxWaitAttr) || "5000")
+    resultsCollectionMaxWait: +(DOCUMENT.currentScript.getAttribute(
+        resultsCollectionMaxWaitAttr) || "5000")
   };
 
   var _config = _objectSpread({}, _default, initialConfig, {
@@ -986,6 +1069,6 @@
 
   exports.conflictDetection = conflictDetection;
 
-  Object.defineProperty(exports, '__esModule', { value: true });
+  Object.defineProperty(exports, '__esModule', {value: true});
 
 })));

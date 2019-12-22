@@ -17,7 +17,6 @@ function newPostModal() {
   document.getElementById("create-post-modal").style.display = "block";
 }
 
-
 //Close Modals
 function closeSigninModal() {
   var signInModal = document.getElementById("sign-in-modal");
@@ -35,7 +34,7 @@ function closeNewPostModal() {
 }
 
 //Modals made responsive to foucs
-window.onclick = function(event) {
+window.onclick = function (event) {
   var modal = document.getElementsByClassName("modal");
   for (var i = 0; i < modal.length; i++) {
     if (event.target == modal[i]) {
@@ -44,8 +43,9 @@ window.onclick = function(event) {
       modal[2].style.display = "none";
     }
   }
-}
+};
+
 //Open all posts page
-function openAllPosts(){
-  document.location.href="html/postslist.html";
+function openAllPosts() {
+  document.location.href = "html/postslist.html";
 }

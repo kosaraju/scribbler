@@ -12,26 +12,34 @@ function populatePost() {
 
 function onEditButtnClicked() {
   document.getElementById('post-contents').removeAttribute('disabled');
-  document.getElementById('post-title-edit').value = document.getElementById('title').innerText;
+  document.getElementById('post-title-edit').value = document.getElementById(
+      'title').innerText;
   document.getElementById('post-title-edit').style.display = "block";
   document.getElementById('title').style.display = "none";
-  document.getElementById('edit-save-button').innerHTML = 'Save <i class="fa fa-save"></i>';
-  document.getElementById('edit-save-button').setAttribute('onclick', 'onSaveButtonClicked()');
+  document.getElementById(
+      'edit-save-button').innerHTML = 'Save <i class="fa fa-save"></i>';
+  document.getElementById('edit-save-button').setAttribute('onclick',
+      'onSaveButtonClicked()');
 }
 
 function onSaveButtonClicked() {
-  document.getElementById('edit-save-button').innerHTML = 'Edit <i class="fa fa-edit"></i>';
-  document.getElementById('edit-save-button').setAttribute('onclick', 'onEditButtnClicked()');
+  document.getElementById(
+      'edit-save-button').innerHTML = 'Edit <i class="fa fa-edit"></i>';
+  document.getElementById('edit-save-button').setAttribute('onclick',
+      'onEditButtnClicked()');
   document.getElementById('post-contents').setAttribute('disabled', 'true');
   document.getElementById('post-title-edit').style.display = "none";
   document.getElementById('title').style.display = "block";
-  document.getElementById('title').innerText = document.getElementById('post-title-edit').value;
+  document.getElementById('title').innerText = document.getElementById(
+      'post-title-edit').value;
 }
 
 function onLikesButtonCLicked() {
   likes++;
-  document.getElementById('likesCount').innerHTML = likes + " person likes this!"
-  document.getElementById('likeBtn').innerHTML = '<i class="fa fa-thumbs-up"></i>Liked';
+  document.getElementById('likesCount').innerHTML = likes
+      + " person likes this!";
+  document.getElementById(
+      'likeBtn').innerHTML = '<i class="fa fa-thumbs-up"></i>Liked';
 }
 
 function onCommentButtonClicked() {
@@ -43,8 +51,9 @@ function onCommentButtonClicked() {
 
 function popuateComments() {
   var html = '<div>';
-  comments.forEach(function(value, index) {
-    html += "<div id='comment" + index + "'class='posted-comment-card'<p>" + value + "</p></div>";
+  comments.forEach(function (value, index) {
+    html += "<div id='comment" + index + "'class='posted-comment-card'<p>"
+        + value + "</p></div>";
   });
   html += '</div>';
   document.getElementById('postedCommentsSection').innerHTML = html;
