@@ -3,16 +3,17 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <!-- TODO: Include Font Awesome file here -->
 
-  <link rel="stylesheet" href="../styles/fontawesome/css/all.css">
+  <link href="../styles/fontawesome/css/all.css" rel="stylesheet">
 
   <!-- TODO: Include Google Fonts file here -->
   <link href="https://fonts.googleapis.com/css?family=Montez&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="../styles/posts.css" />
-  <link rel="stylesheet" type="text/css" href="../styles/common.css" />
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        rel="stylesheet">
+  <link href="../styles/posts.css" rel="stylesheet" type="text/css"/>
+  <link href="../styles/common.css" rel="stylesheet" type="text/css"/>
 </head>
 
 <body onload="populatePost()">
@@ -24,27 +25,32 @@
   <form>
     <h4 id="title">Every thing you should know about module and require in node.js</h4>
     <div class="form-group">
-      <input type="text" class="form-control" id="post-title-edit" />
+      <input class="form-control" id="post-title-edit" type="text"/>
     </div>
     <div id="authorSection">
       <span id="authName">Sristhi Gupta</span>
       <span>
-                    <button style="float:right;" id="edit-save-button" type="button" onclick="onEditButtnClicked()" class="btn btn-danger">Edit <i class="fa fa-edit"></i></button>
-                </span>
+                  <button class="btn btn-danger" id="edit-save-button"
+                          onclick="onEditButtnClicked()" style="float:right;" type="button">Edit <i
+                      class="fa fa-edit"></i></button>
+              </span>
     </div>
     <div class="form-group">
       <textarea class="form-control" id="post-contents" rows="10"></textarea>
     </div>
-    <button type="button" id="likeBtn" class="btn btn-danger" onclick="onLikesButtonCLicked()"><i class="fa fa-thumbs-up"></i>Like </button>
+    <button class="btn btn-danger" id="likeBtn" onclick="onLikesButtonCLicked()" type="button"><i
+        class="fa fa-thumbs-up"></i>Like
+    </button>
   </form>
   <p id="likesCount">Be the first one to like this!</p>
 </div>
 <div class="comment-section">
   <form>
     <div class="form-group">
-      <textarea class="form-control" id="post-comment" rows="4" placeholder="Enter a comment" required></textarea>
+      <textarea class="form-control" id="post-comment" placeholder="Enter a comment" required
+                rows="4"></textarea>
     </div>
-    <button onclick="onCommentButtonClicked()" type="button" class="btn btn-danger">Comment</button>
+    <button class="btn btn-danger" onclick="onCommentButtonClicked()" type="button">Comment</button>
   </form>
 </div>
 <div class="posted-comments" id="postedCommentsSection">
