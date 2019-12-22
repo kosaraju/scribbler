@@ -63,27 +63,41 @@ showPostsTemplate();
 
 function showPostsTemplate(){
   posts.forEach(function(value, index, array){
-    var template = '        <div>\n'
-        + '            <div>\n'
-        + '                <p>'+value.author+'</p>\n'
-        + '            </div>\n'
-        + '\n'
-        + '            <div>\n'
-        + '                <div>\n'
-        + '                    <p>'+value.summary+'</p>\n'
-        + '                    <span>\n'
-        + '                        <!-- TODO: Include Font Awesome icon for delete icon here -->\n'
-        + '\t\t\t<i class="fa fa-trash" aria-hidden="true"></i>\n'
-        + '                    </span>\n'
-        + '                </div>\n'
-        + '                <p>'+value.details+'</p>\n'
-        + '                <span>\n'
-        + '                    <!-- TODO: Include Font Awesome icon for horizontal ellipsis icon here -->\n'
-        + '                \t<i class="fas fa-ellipsis-h"></i>\t\n'
-        + '\t\t</span>\n'
-        + '            </div>\n'
-        + '        </div>\n'
-        document.getElementById("postslistdiv").innerHTML+=template;
+    var template = '<section class ="post-block">'
+                   + '<div>'
+                      + '<p>'+value.author+'</p>'
+                   + '</div>'
+                    + '<div>'
+                     + '<div>'
+                       + '<p>'+value.summary+'</p>'
+                         + '<span>'
+                           + '<i class="fa fa-trash" aria-hidden="true"></i>'
+                         + '</span>'
+                       + '</div>'
+                     + '<p>'+value.details+'</p>'
+                     + '<span>'
+                     + '<i class="fas fa-ellipsis-h"></i>'
+                     + '</span>'
+                     + '</div>'
+                     + '</section>'
+ document.getElementById("postslistdiv").innerHTML+=template;
   });
 
+}
+
+var idName = 1;
+function addPost(id) {
+  idName ++;
+  var listID = 'postList_' + idName;
+  var postID = 'post_' + idName;
+  var templateBlock = '<section class="post-block" id='+ postID+'>'+
+      '<div> ' + id.value + ' <button onclick="removePosts('+ listID +')">Remove card</button></div>'+
+      ' <div class="post-block" id='+ listID +'>'+
+      '</div>'+
+      ' </section>';
+  document.getElementById('postslistdiv').innerHTML += templateBlock;
+}
+
+function removePosts(element) {
+  document.getElementById(element.id).innerHTML = '';
 }
